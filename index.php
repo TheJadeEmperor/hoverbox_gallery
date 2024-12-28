@@ -8,15 +8,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="hoverbox.js"></script>
     <link rel="stylesheet" href="hoverbox.css">
+
+    <script>
+    $(document).ready(function(){
+        let vidArray = $(".hoverbox_video");
+
+        //console.log(vidArray);
+
+        $(vidArray).hover(function(){
+
+        console.log($(this));
+            $(this)[0].muted = false;
+        });
+
+
+        $(vidArray).mouseleave(function() {  
+            $(this)[0].muted = true;
+        });
+ 
+    });  
+
+
+</script>
+
 </head>
 <body>
 <p>&nbsp;</p>
 
 <?php
-//a wordpress function that returns the url 
-function get_site_url() { //it needs to be defined here
-    return 'http://localhost/lightbox_gallery';
-}
+ 
 
 function gallery_function($atts) {
     $anime = $atts['project_folder'];
@@ -52,7 +72,7 @@ function gallery_function($atts) {
     }
     unset($small[0]); //delete 0 element
 
-//    print_r($small); exit;
+    //    print_r($small); exit;
 
     //check for thumbnails
     if(is_dir($directory.'/thumbnails')) $showThumbnails = 1;
@@ -153,19 +173,25 @@ function hoverbox_video ($atts) {
 
 
 $atts = array(
-    'project_folder' => 'anime/vid_bb',
+    'project_folder' => 'carousel',
     'project_name' => 'gallery 1'
 );
 
 echo gallery_function($atts);
 
 $atts = array(
-    'project_folder' => 'anime/vid_bb',
+    'project_folder' => 'sample_videos',
     'project_name' => 'gallery 2'
 );
 
 echo hoverbox_video($atts);
 
 ?>
+
+<video autoplay muted controls id="vid" class="hoverbox_video">
+        <source src="sample_videos/BLWS_ad_web_design.mp4" type="video/mp4" />
+</video>
+
+
 </body>
 </html>
