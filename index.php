@@ -179,6 +179,14 @@ $atts = array(
 
 echo gallery_function($atts);
 
+
+?>
+
+<p>&nbsp;</p>
+
+<?php
+ 
+
 $atts = array(
     'project_folder' => 'sample_videos',
     'project_name' => 'gallery 2'
@@ -186,11 +194,13 @@ $atts = array(
 
 echo hoverbox_video($atts);
 
+
+
+
+
 ?>
 
-<video autoplay muted controls id="vid" class="hoverbox_video">
-        <source src="sample_videos/BLWS_ad_web_design.mp4" type="video/mp4" />
-</video>
+
 
 
 </body>

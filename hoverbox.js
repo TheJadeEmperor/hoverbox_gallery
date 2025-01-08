@@ -48,8 +48,8 @@ function showSlides(n) {
 
     var slides = $('.open').find('.mySlides'); //lightbox_main_image
     var dots = $('.open').find('.demo'); //slides under main img
-    console.log('slides ' + slides);
-    console.log('dots ' + dots);
+    //console.log('slides ' + slides);
+    //console.log('dots ' + dots);
 
     var captionText = document.getElementById("caption");
     
@@ -62,20 +62,32 @@ function showSlides(n) {
 
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
+
     }
 
-    //show 4 slides only
-    for (i = 0; i < dots.length; i++) {
-        dots[i].style.display = "none"; 
+     //show 4 slides only
+     for (i = 0; i < dots.length; i++) {
 
-        if(slideIndex+2 == i || slideIndex+1 == i || slideIndex == i || slideIndex-1 == i) { //4 slides nearest slideIndex
-            dots[i].style.display = "block"; 
-          }
-
-          console.log('i: '+i+' slideIndex: '+slideIndex);
-      }
+       
+             dots[i].style.display = "none"; 
+      
+             if(slideIndex+2 == i || slideIndex+1 == i || slideIndex == i || slideIndex-1 == i) { 
+                //4 slides nearest slideIndex
+                 dots[i].style.display = "block"; 
+                 console.log('i: '+i+' slideIndex: '+slideIndex);
+             }
+     
+           }
+     
+     
+ 
+    if (slides.length === 0) {
+        console.warn("No slides found.");
+        return; // Stop execution
+    }
 
       slides[slideIndex-1].style.display = "block";
-      dots[slideIndex-1].className += " active";
-      captionText.innerHTML = dots[slideIndex-1].alt;
+      //dots[slideIndex-1].className += " active";
+      //captionText.innerHTML = dots[slideIndex-1].alt;
+    
 }

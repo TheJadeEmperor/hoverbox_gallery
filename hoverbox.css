@@ -274,6 +274,5 @@ img {
 .hoverbox_video:hover {
   opacity: 1;
   cursor: pointer;
-  border: 5px solid white;
-  max-width: 500px;
+  border: 5px solid white; 
 }
