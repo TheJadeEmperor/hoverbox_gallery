@@ -2,7 +2,8 @@ var $=jQuery.noConflict();
 
 jQuery(document).ready(function($) {
     
-      $("body").keydown(function(e) {
+    //naviagte lightbox
+    $("body").keydown(function(e) {
       if(e.keyCode == 37) { // left
         plusSlides(-1); console.log('plusSlides(-1);');
       }
@@ -16,8 +17,36 @@ jQuery(document).ready(function($) {
     });
 
 
+    //hoverbox_video element
+    let vidArray = $(".hoverbox_video");
+
+    $(vidArray).hover(function(){ //unmute vid when mouseover vide s
+        //console.log($(this)); 
+        $(this)[0].muted = false;
+    });
+
+    $(vidArray).mouseleave(function() {  //mute vid on mouse leave
+        $(this)[0].muted = true;
+    });
+
+    $(vidArray).on('click', function(event) {
+        event.preventDefault();
+        //var video = document.getElementById('myVideo');
+
+        if ($(this)[0].requestFullscreen) {
+            $(this)[0].requestFullscreen();
+        } else if ($(this)[0].mozRequestFullScreen) { // Firefox
+            $(this)[0].mozRequestFullScreen();
+        } else if ($(this)[0].webkitRequestFullscreen) { // Chrome, Safari and Opera
+            $(this)[0].webkitRequestFullscreen();
+        } else if ($(this)[0].msRequestFullscreen) { // IE/Edge
+            $(this)[0].msRequestFullscreen();
+        }
+    });
+
 });
- 
+
+
 function openModal(anime) {
     document.getElementById(anime).style.display = "block";
     //add class to anime div
