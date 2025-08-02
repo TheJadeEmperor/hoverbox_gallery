@@ -1,5 +1,5 @@
 <?php
-include('hoverbox.php');
+include('hoverbox.php'); 
 ?>
 
 <h1>Sample Image Gallery</h1><h3>Hover over image to see preview</h3><h3>Click image to open lightbox</h3>

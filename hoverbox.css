@@ -3,7 +3,7 @@ body {
   margin: 0;
   width: 100%;
   color: white;
-  background-color: black;
+  background-color: black;  
 }
 
 * {
@@ -14,10 +14,8 @@ body {
   cursor: pointer;
 }
 
-
 /* The Modal (background) */
-
-.modal {
+.hoverModal {
   display: none;
   position: fixed;
   z-index: 99;
@@ -30,16 +28,14 @@ body {
   background-color: black;
 }
 
-.modal .column {
+.hoverModal .column {
   /* slideshow slides */
   float: left;
   width: 25%;
 }
 
-
-/* Modal Content */
-
-.modal-content {
+/* Lightbox Content */
+.modal-content, .lightboxContent {
   position: relative;
   background-color: #fefefe;
   margin: auto;
@@ -48,10 +44,8 @@ body {
   max-width: 1200px;
 }
 
-
 /* The Close Button */
-
-.modal .close {
+.hoverModal .close {
   color: rgb(209, 209, 209);
   position: absolute;
   top: 20px;
@@ -60,13 +54,14 @@ body {
   font-weight: bold;
 }
 
-.modal .close:hover {
+.hoverModal .close:hover {
   color: rgb(255, 255, 255);
   text-decoration: none;
   cursor: pointer;
 }
 
-.mySlides {
+/* lightbox slides */
+.hoverModal .mySlides {
   display: none;
   background-color: black;
   text-align: center;
@@ -79,8 +74,8 @@ body {
 
 /* Next & previous buttons */
 
-.modal .prev,
-.modal .next {
+.hoverModal .prev,
+.hoverModal .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -101,7 +96,7 @@ body {
 
 /* Position the "next button" to the right */
 
-.modal .next {
+.hoverModal .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
@@ -109,8 +104,8 @@ body {
 
 /* On hover, add a background color with a little bit see-through */
 
-.modal .prev:hover,
-.modal .next:hover {
+.hoverModal .prev:hover,
+.hoverModal .next:hover {
   background-color: rgba(80, 74, 74, 0.8);
 }
 
@@ -126,18 +121,17 @@ body {
   top: 0;
 }
 
-.modal img {
+.hoverModal img {
   margin-bottom: -4px;
 }
 
-.caption-container {
+.captionContainer {
   text-align: center;
   background-color: black;
   padding: 2px 16px;
-
 }
 
-  .caption-container p {
+  .captionContainer p {
       font-size: 18px; 
       color: white;
   }
@@ -226,6 +220,12 @@ img {
   height: 75px;
 }
 
+.hoverbox img.thumbnail { 
+  width: 75px;
+  height: 130px;
+}
+
+
 .hoverbox .preview_portrait {
   border-color: #FFF;
   width: 200px;
@@ -275,4 +275,29 @@ img {
   opacity: 1;
   cursor: pointer;
   border: 5px solid white; 
+}
+
+/* prevent hoverbox gallery from shifting right */
+ul {
+  padding-inline-start: 0px;
+}
+
+.container {
+  padding: 0 40px;
+} 
+
+a {
+  color: rgb(241, 228, 228);
+}
+
+a:hover{
+  color:#aaa
+}
+
+a:visited {
+  color:rgb(212, 198, 198)
+}
+
+span.contents {
+  font-size: 12px;
 }

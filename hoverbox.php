@@ -11,6 +11,7 @@
 
 </head>
 <body>
+    <div class="container">
 <p>&nbsp;</p>
 
 <?php
@@ -117,23 +118,23 @@ function gallery_function($atts) {
     $counter = $counter - 1; //JS arrays start at 0
  
     //display the modal elements
-    $galleryContent .=  '<div id="'.$divID.'" class="modal">
+    $galleryContent .=  '<div id="'.$divID.'" class="hoverModal">
     <a class="close cursor" onclick="closeModal(\''.$anime.'\')">&times;</a>
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    <div class="modal-content">';
+    <div class="lightboxContent">';
 
     foreach($small as $num => $picture) {
         $showThisImg = $directory.'/'.$picture;
 
-        $showThisImg = str_replace(" ", "%20", $showThisImg);
+       // $showThisImg = str_replace(" ", "%20", $showThisImg);
 
         $galleryContent .=  '<div class="mySlides">
         <div class="numbertext">'.$num.' / '.$counter.'</div>
         <img src="'.$showThisImg.'" onclick="plusSlides(1)" class="lightbox_main_image cursor">
         </div>';
     }
-    $galleryContent .=  '<div class="caption-container">
+    $galleryContent .=  '<div class="captionContainer">
     <p id="caption">'.$postTitle.'</p>
     </div>
     </div>
@@ -170,6 +171,3 @@ function hoverbox_video ($atts) {
 
 
 ?>
-
-</body>
-</html>

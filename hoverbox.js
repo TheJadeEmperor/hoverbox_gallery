@@ -2,7 +2,7 @@ var $=jQuery.noConflict();
 
 jQuery(document).ready(function($) {
     
-    //naviagte lightbox
+    //navigate lightbox
     $("body").keydown(function(e) {
       if(e.keyCode == 37) { // left
         plusSlides(-1); console.log('plusSlides(-1);');
@@ -15,7 +15,6 @@ jQuery(document).ready(function($) {
         closeModal(anime); console.log('closeModal();');
       }
     });
-
 
     //hoverbox_video element
     let vidArray = $(".hoverbox_video");
@@ -55,7 +54,8 @@ function openModal(anime) {
   
 function closeModal(anime) {
     console.log('closeModal ' + anime); 
-    $('.modal').css('display', 'none');
+    //$('.modal').css('display', 'none');   
+    $('.hoverModal').css('display', 'none');
     $('#'+anime).removeClass('open');
 }
 
@@ -91,25 +91,21 @@ function showSlides(n) {
 
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
-
     }
 
      //show 4 slides only
      for (i = 0; i < dots.length; i++) {
 
-       
-             dots[i].style.display = "none"; 
+        dots[i].style.display = "none"; 
+
+        if(slideIndex+2 == i || slideIndex+1 == i || slideIndex == i || slideIndex-1 == i) { 
+        //4 slides nearest slideIndex
+            dots[i].style.display = "block"; 
+            console.log('i: '+i+' slideIndex: '+slideIndex);
+        }
+     
+    }
       
-             if(slideIndex+2 == i || slideIndex+1 == i || slideIndex == i || slideIndex-1 == i) { 
-                //4 slides nearest slideIndex
-                 dots[i].style.display = "block"; 
-                 console.log('i: '+i+' slideIndex: '+slideIndex);
-             }
-     
-           }
-     
-     
- 
     if (slides.length === 0) {
         console.warn("No slides found.");
         return; // Stop execution
